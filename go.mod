@@ -1,4 +1,4 @@
-module github.com/sambakker4/3bld
+module github.com/sambakkercow/3bld
 
 go 1.22.2
 
