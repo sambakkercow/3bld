@@ -12,14 +12,14 @@ import (
 func Add(letterPair, word string) {
 	file, err := os.OpenFile(Filename, os.O_RDWR|os.O_CREATE, 0644)
 	if err != nil {
-		fmt.Printf("Error opening csv file %v\n", err)
+		fmt.Printf("Error opening csv file: %v\n", err)
 		return
 	}
 
 	csvFile := csv.NewReader(file)
 	data, err := csvFile.ReadAll()
 	if err != nil {
-		fmt.Printf("Error reading csv file %v\n", err)
+		fmt.Printf("Error reading csv file: %v\n", err)
 		return
 	}
 	file.Close()
@@ -27,14 +27,14 @@ func Add(letterPair, word string) {
 	firstLetter := letterPair[0]
 	secondLetter := letterPair[1]
 
-	index1 := int(firstLetter) - 97
-	index2 := int(secondLetter) - 97
+	index1 := int(firstLetter) - 96
+	index2 := int(secondLetter) - 96
 
 	data[index1][index2] = word
 
 	file, err = os.Create(Filename)
 	if err != nil {
-		fmt.Printf("Error creating csv file %v\n", err)
+		fmt.Printf("Error creating csv file: %v\n", err)
 		return
 	}
 	defer file.Close()
@@ -42,7 +42,7 @@ func Add(letterPair, word string) {
 	csvWriter := csv.NewWriter(file)
 	err = csvWriter.WriteAll(data)
 	if err != nil {
-		fmt.Printf("Error writing to csv file %v\n", err)
+		fmt.Printf("Error writing to csv file: %v\n", err)
 		return
 	}
 
