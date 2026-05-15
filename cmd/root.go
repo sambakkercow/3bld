@@ -10,8 +10,11 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const Filename = "~/go/bin/3BLD.csv"
 
+func getFileName() string{
+	homeDir, _ := os.UserHomeDir()
+	return homeDir + "/go/bin/3BLD.csv"
+}
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{

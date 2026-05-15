@@ -10,7 +10,7 @@ import (
 )
 
 func Get(letterPair string) {
-	file, err := os.OpenFile(Filename, os.O_RDWR|os.O_CREATE, 0644)
+	file, err := os.OpenFile(getFileName(), os.O_RDWR|os.O_CREATE, 0644)
 	if err != nil {
 		fmt.Printf("Error opening csv file: %v\n", err)
 		return

@@ -10,7 +10,7 @@ import (
 )
 
 func Add(letterPair, word string) {
-	file, err := os.OpenFile(Filename, os.O_RDWR|os.O_CREATE, 0644)
+	file, err := os.OpenFile(getFileName(), os.O_RDWR|os.O_CREATE, 0644)
 	if err != nil {
 		fmt.Printf("Error opening csv file: %v\n", err)
 		return
@@ -32,7 +32,7 @@ func Add(letterPair, word string) {
 
 	data[index1][index2] = word
 
-	file, err = os.Create(Filename)
+	file, err = os.Create(getFileName())
 	if err != nil {
 		fmt.Printf("Error creating csv file: %v\n", err)
 		return
