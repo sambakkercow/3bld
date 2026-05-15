@@ -15,6 +15,8 @@ func Get(letterPair string) {
 		fmt.Printf("Error opening csv file: %v\n", err)
 		return
 	}
+	fmt.Println("File is", file)
+	fmt.Println("File name is", getFileName())
 
 	csvFile := csv.NewReader(file)
 	data, err := csvFile.ReadAll()
