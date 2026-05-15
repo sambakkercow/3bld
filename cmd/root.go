@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const Filename = "3BLD.csv"
+const Filename = "~/go/bin/3BLD.csv"
 
 
 // rootCmd represents the base command when called without any subcommands
